@@ -1,6 +1,15 @@
+import AddItemBar from "./components/AddItemBar";
+import NavBar from "./components/NavBar";
+
 function App() {
-  return <></>;
-{/* NavBar - Accueil, Connexion, */}
+  return (
+    <>
+      <NavBar />
+
+      <AddItemBar />
+
+    </>
+  );
 }
 
 export default App;
