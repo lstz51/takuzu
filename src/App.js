@@ -1,15 +1,30 @@
-import AddItemBar from "./components/AddItemBar";
-import NavBar from "./components/NavBar";
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavigationBar from './components/NavigationBar';
+import TakuzuGame from './components/TakuzuGame';
+import SettingsPage from './components/SettingsPage';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <NavBar />
-
-      <AddItemBar />
-
-    </>
+    <Router>
+      <div>
+        <NavigationBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
+
+const HomePage = () => {
+  return (
+    <div>
+      <TakuzuGame />
+    </div>
+  );
+};
 
 export default App;
