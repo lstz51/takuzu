@@ -11,19 +11,11 @@ const App = () => {
       <div>
         <NavigationBar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<TakuzuGame />} />
           <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </div>
     </Router>
-  );
-};
-
-const HomePage = () => {
-  return (
-    <div>
-      <TakuzuGame />
-    </div>
   );
 };
 
