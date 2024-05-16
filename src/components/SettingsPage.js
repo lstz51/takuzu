@@ -17,7 +17,7 @@ const SettingsPage = () => {
 
   return (
     <Container>
-      <h1>Settings</h1>
+      <h1>Paramètres</h1>
       <Form>
         <Form.Check
           type="switch"

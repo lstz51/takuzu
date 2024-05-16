@@ -30,12 +30,12 @@ const ScoreboardPage = () => {
 
   return (
     <Container>
-      <h1>Classement</h1>
+      <h1>Classement Du Jour</h1>
       <Table striped bordered hover>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Temps</th>
+            <th>Temps (en secondes)</th>
             <th>Date</th>
           </tr>
         </thead>

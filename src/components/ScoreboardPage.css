@@ -3,21 +3,3 @@
     font-weight: bold; /* Mettre en gras le texte des éléments du podium */
   }
   
-  /* Style pour le premier */
-  .first-place::before {
-    content: "🥇"; /* Ajouter une icône ou un symbole pour la première place */
-    margin-right: 5px; /* Ajouter un espace à droite de l'icône */
-  }
-  
-  /* Style pour le deuxième */
-  .second-place::before {
-    content: "🥈"; /* Ajouter une icône ou un symbole pour la deuxième place */
-    margin-right: 5px; /* Ajouter un espace à droite de l'icône */
-  }
-  
-  /* Style pour le troisième */
-  .third-place::before {
-    content: "🥉"; /* Ajouter une icône ou un symbole pour la troisième place */
-    margin-right: 5px; /* Ajouter un espace à droite de l'icône */
-  }
-  

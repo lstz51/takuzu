@@ -12,6 +12,7 @@ const NavigationBar = () => {
             <Nav.Link href="/scoreboard">Classement</Nav.Link>
             <Nav.Link href="/settings">Paramètres</Nav.Link>
             <Nav.Link href="/rules">Règles</Nav.Link>
+            <Nav.Link href="/authentification">Authentification</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

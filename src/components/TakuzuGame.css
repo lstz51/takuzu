@@ -1,66 +1,75 @@
 /* TakuzuGame.css */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  .row {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .col {
-    flex: 0 0 50px;
-    margin: 5px;
-  }
-  
-  .cell {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  .empty {
-    background-color: #f0f0f0;
-  }
-  
-  .cell-zero {
-    background-color: #64b5f6;
-    color: #fff;
-  }
-  
-  .cell-one {
-    background-color: #ff8a65;
-    color: #fff;
-  }
-  
-  .modal-content {
-    padding: 20px;
-  }
-  
-  .modal-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .modal-body {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  
-  .modal-footer {
-    justify-content: center;
-  }
-  
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.col {
+  flex: 0 0 50px;
+  margin: 5px;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Couleur de fond légèrement différente pour les cellules générées automatiquement */
+.cell-auto {
+  background-color: rgb(120, 0, 0);
+}
+
+/* Couleur de fond légèrement différente pour les cellules modifiées manuellement */
+.cell-manual {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.empty {
+  background-color: #f0f0f0;
+}
+
+.cell-zero {
+  background-color: #64b5f6;
+  color: #fff;
+}
+
+.cell-one {
+  background-color: #ff8a65;
+  color: #fff;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal-body {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.modal-footer {
+  justify-content: center;
+}
