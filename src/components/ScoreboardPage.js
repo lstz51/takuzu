@@ -15,12 +15,17 @@ const ScoreboardPage = () => {
     try {
       const db = getFirestore();
       const winnersCollection = collection(db, 'winners');
-      const winnersSnapshot = await getDocs(query(winnersCollection, orderBy('time'), limit(10))); // Limiter les résultats aux 3 premiers
+      const winnersSnapshot = await getDocs(query(winnersCollection, orderBy('time'), limit(10)));
       const winnersData = [];
       winnersSnapshot.forEach(doc => {
         const winnerData = doc.data();
-        const formattedTimestamp = new Date(winnerData.timestamp.seconds * 1000).toLocaleString(); // Convertir les secondes en millisecondes et formater la date
-        winnersData.push({ id: doc.id, time: winnerData.time, timestamp: formattedTimestamp });
+        const formattedTimestamp = new Date(winnerData.timestamp.seconds * 1000).toLocaleString();
+        winnersData.push({
+          id: doc.id,
+          time: winnerData.time,
+          pseudo: winnerData.pseudo || doc.id,
+          timestamp: formattedTimestamp
+        });
       });
       setWinners(winnersData);
     } catch (error) {
@@ -34,15 +39,15 @@ const ScoreboardPage = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Pseudo</th>
             <th>Temps (en secondes)</th>
             <th>Date</th>
           </tr>
         </thead>
         <tbody>
           {winners.map((winner, index) => (
-            <tr key={winner.id} className={index < 3 ? 'podium' : ''}> {/* Appliquer une classe de podium aux trois premières lignes */}
-              <td>{winner.id}</td>
+            <tr key={winner.id} className={index < 3 ? 'podium' : ''}>
+              <td>{winner.pseudo}</td>
               <td>{winner.time}</td>
               <td>{winner.timestamp}</td>
             </tr>
