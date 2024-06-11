@@ -15,7 +15,7 @@ const ScoreboardPage = () => {
     try {
       const db = getFirestore();
       const winnersCollection = collection(db, 'winners');
-      const winnersSnapshot = await getDocs(query(winnersCollection, orderBy('time'), limit(10)));
+      const winnersSnapshot = await getDocs(query(winnersCollection, orderBy('time'), limit(100)));
       const winnersData = [];
       winnersSnapshot.forEach(doc => {
         const winnerData = doc.data();

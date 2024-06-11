@@ -8,9 +8,11 @@ import RulesPage from './components/RulesPage';
 import ScoreboardPage from './components/ScoreboardPage';
 import AuthentificationPage from './components/AuthentificationPage';
 import AuthenticatedWrapper from './components/AuthenticatedWrapper';
+import { ThemeProvider } from './components/ThemeContext';
 
 const App = () => {
   return (
+    <ThemeProvider>
     <Router>
       <div>
         <AuthenticatedWrapper >
@@ -25,6 +27,7 @@ const App = () => {
         </AuthenticatedWrapper>
       </div>
     </Router>
+    </ThemeProvider>
   );
 };
 

@@ -3,3 +3,13 @@
     font-weight: bold; /* Mettre en gras le texte des éléments du podium */
   }
   
+  /* TakuzuGame.css */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .form-check-label {
+  color: #ffffff;
+}

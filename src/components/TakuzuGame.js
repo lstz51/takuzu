@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
-import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { Container, Row, Col, Button, Modal, Form } from 'react-bootstrap';
+import { getFirestore, collection, addDoc, serverTimestamp, updateDoc, doc } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from './firebase';
 import takuzuData from '../data/takuzuData.json';
 
@@ -11,10 +12,21 @@ const TakuzuGame = () => {
   const [showModal, setShowModal] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [timerStarted, setTimerStarted] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [pseudo, setPseudo] = useState("");
+  const [winnerDocId, setWinnerDocId] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     importTakuzu();
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setCurrentUser(user);
+      } else {
+        setCurrentUser(null);
+      }
+    });
   }, []);
 
   const importTakuzu = () => {
@@ -98,7 +110,6 @@ const TakuzuGame = () => {
   const handleReset = () => {
     importTakuzu();
     setWinner(false);
-    setElapsedTime(0);
   };
 
   const handleCloseModal = () => {
@@ -119,18 +130,34 @@ const TakuzuGame = () => {
   };
 
   const saveWinnerTime = async (time) => {
-    const pseudo = "anonymous"; // Utilisation d'un pseudo générique pour tous les joueurs
     const firestore = getFirestore(app);
     try {
       const docRef = await addDoc(collection(firestore, "winners"), {
         time: time,
-        pseudo: pseudo,
+        pseudo: currentUser ? "anonymous" : "anonymous",
         timestamp: serverTimestamp()
       });
       console.log("Winner time saved with ID: ", docRef.id);
+      setWinnerDocId(docRef.id); // Store the document ID to update later
     } catch (error) {
       console.error("Error adding winner time: ", error);
     }
+  };
+
+  const handleSavePseudo = async () => {
+    if (currentUser && winnerDocId) {
+      const firestore = getFirestore(app);
+      try {
+        const winnerDoc = doc(firestore, "winners", winnerDocId);
+        await updateDoc(winnerDoc, {
+          pseudo: pseudo || "anonymous"
+        });
+        console.log("Pseudo updated for document ID: ", winnerDocId);
+      } catch (error) {
+        console.error("Error updating pseudo: ", error);
+      }
+    }
+    handleCloseModal();
   };
 
   return (
@@ -157,10 +184,21 @@ const TakuzuGame = () => {
         </Modal.Header>
         <Modal.Body>
           <p>Vous avez gagné en {elapsedTime} secondes !</p>
+          {currentUser && (
+            <Form.Group controlId="formPseudo">
+              <Form.Label>Entrez votre pseudo :</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Pseudo"
+                value={pseudo}
+                onChange={(e) => setPseudo(e.target.value)}
+              />
+            </Form.Group>
+          )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleCloseModal}>
-            Voir le classement
+          <Button variant="primary" onClick={handleSavePseudo}>
+            Enregistrer le score
           </Button>
         </Modal.Footer>
       </Modal>
