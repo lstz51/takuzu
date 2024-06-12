@@ -9,6 +9,8 @@ import ScoreboardPage from './components/ScoreboardPage';
 import AuthentificationPage from './components/AuthentificationPage';
 import AuthenticatedWrapper from './components/AuthenticatedWrapper';
 import { ThemeProvider } from './components/ThemeContext';
+import HomePage from './components/HomePage';
+import TakuzuList from './components/TakuzuList';
 
 const App = () => {
   return (
@@ -18,7 +20,9 @@ const App = () => {
         <AuthenticatedWrapper >
         <NavigationBar />
         <Routes>
-          <Route path="/" element={<TakuzuGame />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/daily" element={<TakuzuGame />} />
+          <Route path="list" element={<TakuzuList />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/rules" element={<RulesPage />} />
           <Route path="/scoreboard" element={<ScoreboardPage />} />
