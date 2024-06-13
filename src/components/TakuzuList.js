@@ -4,7 +4,7 @@ import { Container, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const TakuzuList = () => {
-  const takuzuCount = 14;
+  const takuzuCount = 13;
 
   return (
     <Container>

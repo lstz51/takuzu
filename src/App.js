@@ -11,6 +11,7 @@ import AuthenticatedWrapper from './components/AuthenticatedWrapper';
 import { ThemeProvider } from './components/ThemeContext';
 import HomePage from './components/HomePage';
 import TakuzuList from './components/TakuzuList';
+import TakuzuGameList from './components/TakuzuGameList';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/daily" element={<TakuzuGame />} />
+          <Route path="/:id" element={<TakuzuGameList />} />
           <Route path="list" element={<TakuzuList />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/rules" element={<RulesPage />} />

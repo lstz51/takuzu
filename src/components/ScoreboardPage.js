@@ -35,7 +35,7 @@ const ScoreboardPage = () => {
 
   return (
     <Container>
-      <h1>Classement Du Jour</h1>
+      <h1>Classement</h1>
       <Table striped bordered hover>
         <thead>
           <tr>
