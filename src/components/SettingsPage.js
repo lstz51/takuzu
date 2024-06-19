@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import ThemeContext from './ThemeContext';
-import './TakuzuGame.css';
 
 const SettingsPage = () => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);

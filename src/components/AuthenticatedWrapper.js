@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth'; // Importez le hook useAuthState
 import { getAuth, signOut } from 'firebase/auth';
-import './AuthenticatedWrapper.css';
 
 const AuthenticatedWrapper = ({ children }) => {
   const [user] = useAuthState(getAuth()); // Récupérez l'état de connexion de l'utilisateur

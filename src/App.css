@@ -1,38 +1,133 @@
-.App {
+/* TakuzuGame.css */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.col {
+  flex: 0 0 50px;
+  margin: 5px;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Couleur de fond pour les cellules générées automatiquement */
+.cell-auto {
+  background-color: #e0e0e0; /* Couleur de fond neutre pour indication */
+}
+
+.cell-auto-zero {
+  background-color: #64b5f6; /* Bleu pour les 0 générés automatiquement */
+  color: #fff;
+}
+
+.cell-auto-one {
+  background-color: #ff8a65; /* Orange pour les 1 générés automatiquement */
+  color: #fff;
+}
+
+/* Couleur de fond pour les cellules modifiées manuellement */
+.cell-manual-zero {
+  background-color: rgba(100, 181, 246, 0.6); /* Bleu transparent pour les 0 modifiés manuellement */
+  color: #fff;
+}
+
+.cell-manual-one {
+  background-color: rgba(255, 138, 101, 0.6); /* Orange transparent pour les 1 modifiés manuellement */
+  color: #fff;
+}
+
+.empty {
+  background-color: #f0f0f0;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal-body {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
+/* CSS pour le podium */
+.podium {
+  font-weight: bold; /* Mettre en gras le texte des éléments du podium */
+}
+
+/* TakuzuGame.css */
+
+body.dark-mode {
+background-color: #121212;
+color: #ffffff;
+}
+
+body.dark-mode .form-check-label {
+color: #ffffff;
+}
+
+/* Style pour le conteneur */
+.auth-container {
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Style pour le formulaire */
+.auth-form {
+  margin-top: 20px;
+}
+
+/* Style pour le bouton de soumission */
+.auth-submit-btn {
+  margin-top: 20px;
+}
+
+/* Style pour le bouton de bascule entre la connexion et l'inscription */
+.auth-toggle-btn {
+  margin-top: 10px;
+}
+
+.authenticated-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  padding: 10px;
+  text-align: center;
 }

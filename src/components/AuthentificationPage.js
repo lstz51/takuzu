@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, sendEmailVerification } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import './AuthentificationPage.css';
 import './firebase';
 
 const AuthentificationPage = () => {

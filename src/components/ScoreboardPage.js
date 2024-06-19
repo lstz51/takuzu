@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import { getFirestore, collection, getDocs, orderBy, query, limit } from "firebase/firestore";
 import './firebase';
-import './ScoreboardPage.css';
 
 const ScoreboardPage = () => {
   const [winners, setWinners] = useState([]);

@@ -12,6 +12,7 @@ import { ThemeProvider } from './components/ThemeContext';
 import HomePage from './components/HomePage';
 import TakuzuList from './components/TakuzuList';
 import TakuzuGameList from './components/TakuzuGameList';
+import './App.css'
 
 const App = () => {
   return (
