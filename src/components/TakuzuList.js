@@ -1,4 +1,3 @@
-// src/TakuzuList.js
 import React from 'react';
 import { Container, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

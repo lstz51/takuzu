@@ -9,14 +9,14 @@ const AuthentificationPage = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-    const [isLogin, setIsLogin] = useState(true); // Pour basculer entre l'inscription et la connexion
+    const [isLogin, setIsLogin] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
     const [resetEmail, setResetEmail] = useState('');
     const [isResettingPassword, setIsResettingPassword] = useState(false);
 
 
     const auth = getAuth();
-    const navigate = useNavigate(); // Initialisation de useHistory
+    const navigate = useNavigate();
 
     const handleAuth = async (e) => {
         e.preventDefault();
@@ -44,7 +44,6 @@ const AuthentificationPage = () => {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 await sendEmailVerification(userCredential.user);
                 setErrorMessage('Un e-mail de vérification a été envoyé. Veuillez vérifier votre boîte de réception.');
-                // navigate('/') peut être commenté ou supprimé pour forcer la vérification avant la connexion
             }
         } catch (error) {
             console.error('Erreur d\'authentification :', error);

@@ -1,9 +1,9 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth'; // Importez le hook useAuthState
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth, signOut } from 'firebase/auth';
 
 const AuthenticatedWrapper = ({ children }) => {
-  const [user] = useAuthState(getAuth()); // Récupérez l'état de connexion de l'utilisateur
+  const [user] = useAuthState(getAuth());
   const auth = getAuth();
 
   const handleSignOut = () => {
