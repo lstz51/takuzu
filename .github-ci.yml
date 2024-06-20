@@ -1,0 +1,20 @@
+stages:
+  - build
+#  - deploy
+
+build_frontend:
+  stage: build
+  image: node:16
+  script:
+    - cd client
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - client/build
+
+build_backend:
+  stage: build
+  image: node:16
+  script:
+    - npm install --production
